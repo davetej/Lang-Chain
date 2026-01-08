@@ -1,0 +1,55 @@
+GET your_index/_search
+{
+  "size": 50,
+  "query": {
+    "bool": {
+      "filter": [
+        { "exists": { "field": "age" } }
+      ]
+    }
+  },
+  "sort": [
+    { "age": { "order": "asc", "missing": "_last" } },
+    { "priority": { "order": "asc", "missing": "_last" } },
+
+    {
+      "_script": {
+        "type": "number",
+        "order": "asc",
+        "script": {
+          "lang": "painless",
+          "source": """
+            if (doc['type.keyword'].size()==0) return 999;
+            def t = doc['type.keyword'].value;
+            if (t == 'COB') return 1;
+            if (t == 'POB') return 2;
+            if (t == 'FOR') return 3;
+            if (t == 'LEM') return 4;
+            return 999;
+          """
+        }
+      }
+    },
+
+    {
+      "_script": {
+        "type": "number",
+        "order": "asc",
+        "script": {
+          "lang": "painless",
+          "source": """
+            if (doc['state.keyword'].size()==0) return 999;
+            def s = doc['state.keyword'].value;
+            if (s == 'DRAFT') return 1;
+            if (s == 'PROC') return 2;
+            if (s == 'COMPLETE') return 3;
+            if (s == 'DELETED') return 4;
+            return 999;
+          """
+        }
+      }
+    },
+
+    { "created": { "order": "desc", "missing": "_last" } }
+  ]
+}
