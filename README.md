@@ -1,39 +1,96 @@
-# Contextual PDF RAG (Retriever-Augmented Generation)
+# ☕ LangChain Quick Recap
 
-This project is designed to **help users limit the scope of their queries** by enabling them to upload specific PDFs (such as books, novels, or any other documents) and retrieve answers directly from the provided content. This system allows users to ask context-aware questions, maintain a conversational history, and get precise answers from their uploaded documents.
+A quick-reference LangChain repository - perfect for a coffee break review! This project covers essential LangChain patterns and techniques through hands-on Jupyter notebooks.
 
-Whether you're studying a novel, analyzing a technical manual, or referencing a handbook, this tool simplifies the process by focusing on the specific content you provide.
+## 📚 Topics Covered
 
-## Features
+### 1. Basic Agent Architecture
+**Notebook:** `1_basicAgentArcht.ipynb`
+- Setting up basic LangChain agents
+- Integrating with OpenAI models
+- Google search integration using SerpAPI
+- Agent workflow fundamentals
 
-- **Custom Scope Limitation**: Users can upload any PDF to define the boundaries of their queries.
-- **Efficient Document Retrieval**: Quickly find the most relevant sections of the uploaded document.
-- **Contextualized Answers**: Provides answers considering the document content and conversational history.
-- **Stateful History Management**: Tracks user conversations over multiple queries and ensures a seamless interaction experience.
-- **Versatile Use Cases**: Ideal for researchers, students, writers, and professionals seeking insights from specific documents.
+### 2. Streaming & Batch Processing
+**Notebook:** `2_streamingBatchProcessing.ipynb`
+- Stream processing patterns
+- Batch operation handling
+- Efficient data flow management
 
-## Requirements
+### 3. Tool Calling
+**Notebook:** `3_toolCalling.ipynb`
+- Implementing tool-calling patterns
+- Returning control to LLM after tool execution
+- Building interactive agent workflows
 
-To run this project, you need Python 3.x and the following libraries:
+### 4. Structured Output
+**Notebook:** `4_structureOutput.ipynb`
+- Pydantic schema integration
+- Optional fields and constraints
+- Field/model validators
+- Strict parsing and error handling
 
-- `langchain`
-- `openai`
-- `chromadb`
-- `pdfminer.six`
-- Other required dependencies listed in `requirements.txt`
+### 5. Middleware
+**Notebook:** `5_middleware.ipynb`
+- Middleware patterns in LangChain
+- Message summarization
+- State management with checkpointers
 
-## Installation
+### 6. Moderation Approach
+**Notebook:** `6_moderationApproch.ipynb`
+- OpenAI Moderation API integration
+- Content safety checks
+- Category breakdown and filtering
 
-1. **Clone the repository**:
-    ```bash
-    git clone https://github.com/davetej/GenAI.git
-    cd GenAI
-    ```
+### 7. Human in Loop
+**Notebook:** `7_humanInLoop.ipynb`
+- Interactive agent patterns
+- User confirmation workflows
+- Human oversight integration
 
-2. **Install dependencies**:
-    Create a virtual environment and install the dependencies:
-    ```bash
-    pip install -r requirements.txt
-    ```
+## 🚀 Getting Started
 
-    Let's Play!
+### Prerequisites
+- Python 3.8+
+- OpenAI API key
+- SerpAPI key (for search functionality)
+
+### Installation
+
+```bash
+# Clone the repository
+cd Lang-Chain
+
+# Install dependencies using uv
+uv sync
+
+# Or using pip
+pip install -r requirements.txt
+```
+
+### Configuration
+
+Create a `.env` file with your API keys:
+
+```env
+OPENAI_API_KEY=your_openai_api_key
+SERPAPI_API_KEY=your_serpapi_key
+CHAT_MODEL=gpt-4
+MODERATION_MODEL=omni-moderation-latest
+```
+
+## 📖 Usage
+
+Open any notebook in Jupyter or VS Code and run the cells sequentially. Each notebook is self-contained and focuses on a specific LangChain concept.
+
+## 🎯 Purpose
+
+This repository serves as a quick reference guide for LangChain patterns and best practices. Perfect for:
+- Quick concept reviews
+- Learning LangChain fundamentals
+- Building production-ready agent systems
+- Understanding middleware and tool integration
+
+---
+
+*Happy learning! ☕*

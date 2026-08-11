@@ -1,3 +1,4 @@
-*
-!*.ipynb
-!Requirement.txt
+.venv
+.gitignore
+.env
+.python-version
